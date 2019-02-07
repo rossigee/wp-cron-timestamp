@@ -64,7 +64,7 @@ function wp_cron_timestamp_exec() {
   $timestamp = wp_next_scheduled( 'wp_cron_timestamp' );
   $payload = "# TYPE wp_cron_timestamp gauge\n";
   $payload .= "# HELP Timestamp for last time WP Cron run.\n";
-  $payload .= "wp_cron_timestamp{intance=\"".$hostname."\"} ".$timestamp."\n\n";
+  $payload .= "wp_cron_timestamp ".$timestamp."\n\n";
 
   // Prepare request
   $uri = "/metrics/job/wp_cron_timestamp/instance/".$hostname;
