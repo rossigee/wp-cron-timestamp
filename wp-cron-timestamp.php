@@ -13,8 +13,8 @@ License: GPLv2
 require_once(dirname(__FILE__) . "/wp-cron-timestamp-options.php");
 
 // Add timestamp logging every ten minutes
-add_filter( 'cron_schedules', 'example_add_cron_interval' );
-function example_add_cron_interval( $schedules ) {
+add_filter( 'cron_schedules', 'add_wp_cron_timestamp_interval' );
+function add_wp_cron_timestamp_interval( $schedules ) {
   $schedules['wp_cron_timestamp'] = array(
     'interval' => 600,
     'display'  => esc_html__( 'Every ten minutes (timestamp)' ),
